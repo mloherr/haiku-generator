@@ -1,0 +1,21 @@
+.musicPlayer {
+    margin: 15px 0;
+
+    &__container {
+        border-radius: 50%;
+        background-color: rgb(151, 47, 64);
+        height: 90px;
+        width: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--icon {
+            width: 30px;
+
+            & img {
+                width: 100%;
+            }
+        }
+    }
+}

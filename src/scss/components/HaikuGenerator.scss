@@ -1,0 +1,30 @@
+.haikuMain {
+    margin: 15px 0;
+    border: solid 40px rgb(212, 95, 115);
+    height: 80vh;
+    max-width: 50vw;
+    min-width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(248, 211, 169);
+
+    &__button {
+        width: 150px;
+        font-size: 12px;
+        border-radius: 10px;
+        background-color: rgb(212, 95, 115);
+        color: white;
+        font-weight: bolder;
+        border: solid 1px rgb(151, 47, 64);
+        padding: 10px 0 10px 0;
+        cursor: url('/src/images/cursor.png'), auto;
+    }
+
+    &__textContainer {
+        height: 50vh;
+        font-family: "Stylish", serif;
+        font-size: 30px;
+    }
+}
