@@ -1,6 +1,12 @@
+@import '../core/variables.scss';
+
 .mainContainer {
     display: flex;
-    background-color: pink;
+    background-color: $light-pink;
     justify-content: space-around;
     height: 100vh;
+    @media all and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;}
 }

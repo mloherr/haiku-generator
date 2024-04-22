@@ -1,9 +1,11 @@
+@import '../core/variables.scss';
+
 .musicPlayer {
     margin: 15px 0;
 
     &__container {
         border-radius: 50%;
-        background-color: rgb(151, 47, 64);
+        background-color: $blue-green;
         height: 90px;
         width: 90px;
         display: flex;
@@ -15,7 +17,20 @@
 
             & img {
                 width: 100%;
+
             }
         }
+    }
+}
+
+.rotation {
+    animation: rotar 5s linear infinite;
+}
+@keyframes rotar {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

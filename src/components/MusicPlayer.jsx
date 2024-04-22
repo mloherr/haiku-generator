@@ -18,7 +18,11 @@ function MusicPlayer() {
       <div className="musicPlayer__container" onClick={handlePlay}>
         <audio autoPlay={isPlaying} src={src}></audio>
         <figure className="musicPlayer__container--icon">
-          <img src={iconMusic} alt="" />
+          <img
+            src={iconMusic}
+            alt=""
+            className={`${isPlaying ? 'rotation' : ''}`}
+          />
         </figure>
       </div>
     </section>
