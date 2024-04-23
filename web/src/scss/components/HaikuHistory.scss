@@ -41,5 +41,8 @@
         padding: 10px;
         border-radius: 0 0 10px 10px;
         padding-top: 20px;
+        @media all and (max-width: 768px) {
+            font-size: 15px;
+        }
     }
     }

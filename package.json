@@ -1,31 +1,21 @@
 {
-  "name": "template-react",
-  "homepage": "./",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "haiku-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "publish-react": "cd web && npm run build && cd .. && rm -rf ./src/public-react && mv ./web/dist ./src/public-react"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "node-sass": "^9.0.0",
-    "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3",
-    "sass": "^1.71.1"
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.64",
-    "@types/react-dom": "^18.2.21",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.1.6"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.4"
   }
 }
