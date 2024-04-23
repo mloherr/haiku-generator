@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import '../scss/components/HaikuGenerator.scss';
+import api from '../services/api';
 
-function HaikuGenerator({ haikus }) {
+function HaikuGenerator() {
+  const [haikusVerseOne, setHaikusVerseOne] = useState([]);
+  const [haikusVerseTwo, setHaikusVerseTwo] = useState([]);
+  const [haikusVerseThree, setHaikusVerseThree] = useState([]);
+
   const [randomNumberOne, setRandomNumberOne] = useState(null);
   const [randomNumberTwo, setRandomNumberTwo] = useState(null);
   const [randomNumberThree, setRandomNumberThree] = useState(null);
@@ -11,12 +16,38 @@ function HaikuGenerator({ haikus }) {
   const [haikusPartThree, setHaikusPartThree] = useState('');
 
   const handleClick = () => {
-    setRandomNumberOne(Math.floor(Math.random() * 9));
-    setRandomNumberTwo(Math.floor(Math.random() * 9));
-    setRandomNumberThree(Math.floor(Math.random() * 9));
-    setHaikusPartOne(haikus.haiku1[randomNumberOne]);
-    setHaikusPartTwo(haikus.haiku2[randomNumberTwo]);
-    setHaikusPartThree(haikus.haiku3[randomNumberThree]);
+    api.getVerseOneFromApi().then((response) => {
+      setHaikusVerseOne(response.results);
+    });
+    api.getVerseTwoFromApi().then((response) => {
+      setHaikusVerseTwo(response.results);
+    });
+    api.getVerseThreeFromApi().then((response) => {
+      setHaikusVerseThree(response.results);
+    });
+
+    if (haikusVerseOne.length > 0) {
+      setRandomNumberOne(Math.floor(Math.random() * 10));
+      const firtsVerse = haikusVerseOne.find((haiku) => {
+        return haiku.idFirst === randomNumberOne;
+      });
+      setHaikusPartOne(firtsVerse.phrase);
+    }
+    if (haikusVerseTwo.length > 0) {
+      setRandomNumberTwo(Math.floor(Math.random() * 10));
+      const secondVerse = haikusVerseTwo.find((haiku) => {
+        return haiku.idFirst === randomNumberTwo;
+      });
+      setHaikusPartTwo(secondVerse.phrase);
+    }
+
+    if (haikusVerseThree.length > 0) {
+      setRandomNumberThree(Math.floor(Math.random() * 10));
+      const thirdVerse = haikusVerseThree.find((haiku) => {
+        return haiku.idFirst === randomNumberThree;
+      });
+      setHaikusPartThree(thirdVerse.phrase);
+    }
   };
   return (
     <section className="haikuMain">
