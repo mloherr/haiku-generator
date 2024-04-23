@@ -8,5 +8,9 @@
     @media all and (max-width: 768px) {
         display: flex;
         flex-direction: column;
-        height: 100vh;}
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    
+    }
 }

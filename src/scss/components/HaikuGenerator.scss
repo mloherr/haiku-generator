@@ -11,6 +11,10 @@
     justify-content: center;
     align-items: center;
     background-color: $cream;
+    @media all and (max-width: 768px) {
+        border: solid 20px $dark-pink;
+        min-width: 220px;
+    }
 
     &__button {
         width: 150px;
@@ -28,5 +32,10 @@
         height: 50vh;
         font-family: $font-text;
         font-size: 23px;
+        padding-top: 30px;
+        @media all and (max-width: 768px) {
+            font-size: 20px;
+            text-align: center;
+        }
     }
 }
