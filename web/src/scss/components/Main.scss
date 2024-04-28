@@ -3,8 +3,11 @@
 .mainContainer {
     display: flex;
     background-color: $light-pink;
-    justify-content: space-around;
+    justify-content: space-evenly;
     height: 100vh;
+    overflow-y:hidden;
+    overflow-x:hidden;
+  
     @media all and (max-width: 768px) {
         display: flex;
         flex-direction: column;

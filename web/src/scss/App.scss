@@ -5,3 +5,8 @@
 @import 'components/HaikuGenerator';
 @import 'components/HaikuHistory';
 @import 'components/MusicPlayer';
+
+body {
+    overflow-y:hidden;
+    overflow-x:hidden;
+}

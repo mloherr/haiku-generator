@@ -12,6 +12,9 @@
         border-radius: 10px;
         font-family:"Stylish", serif;
         transform: translateY(10px);
+        @media all and (max-width: 768px) {
+            display: none;
+        }
 
         
 
