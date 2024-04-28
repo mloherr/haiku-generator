@@ -11,23 +11,26 @@ function HaikuGenerator() {
   const [haikusPartTwo, setHaikusPartTwo] = useState('');
   const [haikusPartThree, setHaikusPartThree] = useState('');
 
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    api.getVerseOneFromApi().then((response) => {
-      const responseOne = response.results;
-      return setHaikusVerseOne(responseOne);
-    });
-    api.getVerseTwoFromApi().then((response) => {
-      const responseTwo = response.results;
-      return setHaikusVerseTwo(responseTwo);
-    });
-    api.getVerseThreeFromApi().then((response) => {
-      const responseThree = response.results;
-      return setHaikusVerseThree(responseThree);
-    });
+    setIsLoading(true);
+    const fetchHaikuOne = api.getVerseOneFromApi();
+    const fetchHaikuTwo = api.getVerseTwoFromApi();
+    const fetchHaikuThree = api.getVerseThreeFromApi();
+
+    Promise.all([fetchHaikuOne, fetchHaikuTwo, fetchHaikuThree]).then(
+      (responses) => {
+        setHaikusVerseOne(responses[0].results);
+        setHaikusVerseTwo(responses[1].results);
+        setHaikusVerseThree(responses[2].results);
+        setIsLoading(false);
+      }
+    );
   }, []);
 
   const generateVerseOne = () => {
-    const randomNum = Math.floor(Math.random() * 10);
+    const randomNum = Math.floor(Math.random() * 10 + 1);
     const firstVerse = haikusVerseOne.find(
       (haiku) => haiku.idFirst === randomNum
     );
@@ -37,7 +40,7 @@ function HaikuGenerator() {
   };
 
   const generateVerseTwo = () => {
-    const randomNum = Math.floor(Math.random() * 10);
+    const randomNum = Math.floor(Math.random() * 10 + 1);
     const secondVerse = haikusVerseTwo.find(
       (haiku) => haiku.idFirst === randomNum
     );
@@ -47,7 +50,7 @@ function HaikuGenerator() {
   };
 
   const generateVerseThree = () => {
-    const randomNum = Math.floor(Math.random() * 10);
+    const randomNum = Math.floor(Math.random() * 10 + 1);
     const thirdVerse = haikusVerseThree.find(
       (haiku) => haiku.idFirst === randomNum
     );
@@ -56,17 +59,25 @@ function HaikuGenerator() {
   };
 
   const handleClick = () => {
+    setIsLoading(true);
     generateVerseOne();
     generateVerseTwo();
     generateVerseThree();
+    setIsLoading(false);
   };
 
   return (
     <section className="haikuMain">
       <div className="haikuMain__textContainer">
-        <p>{haikusPartOne}</p>
-        <p>{haikusPartTwo}</p>
-        <p>{haikusPartThree}</p>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            <p>{haikusPartOne}</p>
+            <p>{haikusPartTwo}</p>
+            <p>{haikusPartThree}</p>
+          </>
+        )}
       </div>
       <button className="haikuMain__button" onClick={handleClick}>
         Generate new Haiku
