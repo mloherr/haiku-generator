@@ -3,6 +3,7 @@
 .haikuMain {
     margin: 15px 0;
     border: solid 40px $dark-pink;
+    border-radius: 10px;
     height: 80vh;
     max-width: 50vw;
     min-width: 50vw;
@@ -14,6 +15,7 @@
     @media all and (max-width: 768px) {
         border: solid 20px $dark-pink;
         min-width: 220px;
+        height: 60vh;
     }
 
     &__button {
@@ -26,6 +28,10 @@
         border: solid 1px $light-green;
         padding: 10px 0 10px 0;
         cursor: url('/src/images/cursor.png'), auto;
+
+        @media all and (max-width: 768px) {
+            margin-bottom: 10px;
+        }
     }
 
     &__textContainer {
@@ -34,7 +40,12 @@
         font-size: 23px;
         padding-top: 30px;
         @media all and (max-width: 768px) {
-            font-size: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        @media all and (min-width: 1220px) {
+            font-size: 35px;
             text-align: center;
         }
     }
