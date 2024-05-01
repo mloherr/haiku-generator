@@ -65,4 +65,9 @@ server.get('/versethree', async (req, res) => {
 });
 
 const staticServer = '../web/dist';
+
+server.get('*', (req, res) => {
+  res.sendFile('index.html', { root: staticDir });
+});
+
 server.use(express.static(staticServer));
