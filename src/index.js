@@ -64,5 +64,5 @@ server.get('/versethree', async (req, res) => {
   });
 });
 
-const staticServer = './web/dist';
+const staticServer = '../web/dist';
 server.use(express.static(staticServer));
