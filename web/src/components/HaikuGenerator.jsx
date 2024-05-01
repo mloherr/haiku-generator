@@ -11,6 +11,8 @@ function HaikuGenerator() {
   const [haikusPartTwo, setHaikusPartTwo] = useState('');
   const [haikusPartThree, setHaikusPartThree] = useState('');
 
+  const [isButtonOff, setIsButtonff] = useState(true);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -66,6 +68,14 @@ function HaikuGenerator() {
     setIsLoading(false);
   };
 
+  const handleStateIn = () => {
+    setIsButtonff(!isButtonOff);
+  };
+
+  const handleStateOut = () => {
+    setIsButtonff(!isButtonOff);
+  };
+
   return (
     <section className="haikuMain">
       <div className="haikuMain__textContainer">
@@ -79,7 +89,12 @@ function HaikuGenerator() {
           </>
         )}
       </div>
-      <button className="haikuMain__button" onClick={handleClick}>
+      <button
+        className={isButtonOff ? 'haikuMain__buttonOff' : 'haikuMain__buttonOn'}
+        onClick={handleClick}
+        onMouseEnter={handleStateIn}
+        onMouseLeave={handleStateOut}
+      >
         Generate new Haiku
       </button>
     </section>

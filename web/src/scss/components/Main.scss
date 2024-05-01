@@ -4,17 +4,15 @@
     display: flex;
     background-color: $light-pink;
     justify-content: space-evenly;
-    height: 100vh;
+    min-height: 100vh;
     overflow-y:hidden;
     overflow-x:hidden;
     padding-top: 15px;
   
     @media all and (max-width: 768px) {
         display: flex;
-        flex-direction: column;
-        height: 100vh;
-        justify-content: center;
+        flex-direction: column-reverse;
+        justify-content: start;
         align-items: center;
-    
     }
 }
