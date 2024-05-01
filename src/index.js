@@ -65,9 +65,4 @@ server.get('/versethree', async (req, res) => {
 });
 
 const staticServer = './src/public-react';
-
-server.get('*', (req, res) => {
-  res.sendFile('index.html', { root: staticServer });
-});
-
 server.use(express.static(staticServer));
