@@ -1,4 +1,4 @@
-const URL = 'http://localhost:4002';
+const URL = 'http://haiku.soymarialoherr.com';
 
 const getVerseOneFromApi = () => {
   return fetch(`${URL}/verseone`)
