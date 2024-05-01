@@ -64,7 +64,7 @@ server.get('/versethree', async (req, res) => {
   });
 });
 
-const staticServer = '../web/dist';
+const staticServer = './src/public-react';
 
 server.get('*', (req, res) => {
   res.sendFile('index.html', { root: staticServer });
