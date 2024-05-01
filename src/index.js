@@ -63,3 +63,6 @@ server.get('/versethree', async (req, res) => {
     results: result,
   });
 });
+
+const staticServer = './src/public-react';
+server.use(express.static(staticServer));
