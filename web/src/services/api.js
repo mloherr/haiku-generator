@@ -1,4 +1,4 @@
-const URL = 'http://haiku.soymarialoherr.com';
+const URL = 'https://haiku-generator.onrender.com';
 
 const getVerseOneFromApi = () => {
   return fetch(`${URL}/verseone`)
