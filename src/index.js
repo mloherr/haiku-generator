@@ -11,10 +11,10 @@ server.use(express.json());
 
 async function getDBConnection() {
   const connection = await mysql.createConnection({
-    host: 'localhost',
+    host: process.env.DB_URL,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: 'haikus_db',
+    database: process.env.DB_NAME,
   });
   connection.connect();
   return connection;
