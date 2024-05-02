@@ -9,4 +9,8 @@
 body {
     overflow-y:hidden;
     overflow-x:hidden;
+    @media all and (max-width: 768px) {
+        overflow-y:scroll;
+        overflow-x:scroll;
+    }
 }
