@@ -1,4 +1,4 @@
-const URL = 'https://haiku-generator.onrender.com';
+const URL = 'haiku-generator-backend.vercel.app';
 
 const getVerseOneFromApi = () => {
   return fetch(`${URL}/verseone`)

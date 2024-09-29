@@ -7,11 +7,9 @@ function MusicPlayer() {
   const [src, setSrc] = useState('');
 
   const handlePlay = () => {
-    console.log('Me se escucha?');
-
     const newIsPlaying = !isPlaying;
     setIsPlaying(newIsPlaying);
-    setSrc(newIsPlaying ? '/zenMusic.mp3' : '');
+    setSrc(newIsPlaying ? '../images/zenMusic.mp3' : '');
   };
   return (
     <section className="musicPlayer">
