@@ -9,7 +9,7 @@ function MusicPlayer() {
   const handlePlay = () => {
     const newIsPlaying = !isPlaying;
     setIsPlaying(newIsPlaying);
-    setSrc(newIsPlaying ? 'src/images/zenMusic.mp3' : '');
+    setSrc(newIsPlaying ? 'public/zenMusic.mp3' : '');
   };
   return (
     <section className="musicPlayer">
